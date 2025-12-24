@@ -1,0 +1,12 @@
+<Project>
+    <PropertyGroup>
+        <DOTNETVersion>@DOTNET_VERSION@</DOTNETVersion>
+
+        <GnomeMauiVersion>@GNOMEMAUI_VERSION@</GnomeMauiVersion>
+        <GnomeMauiSdkVersion>@GNOMEMAUI_SDK_VERSION@</GnomeMauiSdkVersion>
+        <GnomeMauiTfm>@GNOMEMAUI_TFM@</GnomeMauiTfm>
+
+        <GNOMEVersion>@GNOME_VERSION@</GNOMEVersion>
+        <GirCoreVersion>@GIRCORE_VERSION@</GirCoreVersion>
+    </PropertyGroup>
+</Project>

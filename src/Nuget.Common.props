@@ -1,0 +1,37 @@
+<Project>
+    <PropertyGroup>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
+        <Copyright>© Copyright Ferenc Czirok. All rights reserved.</Copyright>
+
+        <Owners>Ferenc Czirok</Owners>
+        <Authors>Ferenc Czirok</Authors>
+
+        <PackageVersion>$(GnomeMauiVersion)</PackageVersion>
+        <PackageIcon>Icon.png</PackageIcon>
+        <PackageReadmeFile>NuGet.md</PackageReadmeFile>
+
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageThirdPartyNoticesFile>THIRD-PARTY-NOTICES.TXT</PackageThirdPartyNoticesFile>
+
+        <PackageProjectUrl>https://gnomemaui.net</PackageProjectUrl>
+
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/gnomemaui/gnomemaui.git</RepositoryUrl>
+        <RepositoryBranch>main</RepositoryBranch>
+        <PackageOutputPath>$(DOTNET_ROOT)\library-packs\</PackageOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\LICENSE" Pack="True" PackagePath="\" />
+        <None Include="..\..\assets\nuget\GnomeMaui.128.png" Pack="True" PackagePath="Icon.png" Link="Icon.png" />
+        <None Include="..\NuGet.md" Pack="True" PackagePath="\" />
+        <None Include="..\..\ext\maui\THIRD-PARTY-NOTICES.TXT" Pack="True" PackagePath="\" />
+    </ItemGroup>
+</Project>

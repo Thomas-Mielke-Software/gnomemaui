@@ -1,0 +1,26 @@
+<Project>
+    <!-- GNOME MAUI .NET TFM -->
+    <PropertyGroup Condition="'$(TargetFramework)' == '$(_GnomeMauiTfm)'">
+        <UseMaui>true</UseMaui>
+        <UseMauiGnome>true</UseMauiGnome>
+        <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">linux-x64</RuntimeIdentifier>
+    </PropertyGroup>
+
+    <!-- GNOME specific properties example -->
+    <PropertyGroup Condition="'$(UseMauiGnome)' == 'True'">
+        <EnableLinuxDesktopEntry>true</EnableLinuxDesktopEntry>
+        <LinuxDesktopCategories>Development;IDE;</LinuxDesktopCategories>
+    </PropertyGroup>
+
+    <!-- Automatic inclusion of GnomeMaui and GirCore packages -->
+    <ItemGroup Condition="'$(UseMauiGnome)' == 'True'">
+        <!-- GNOME MAUI packages (if not already present) -->
+        <PackageReference Include="GnomeMaui.Core" Version="$(GnomeMauiVersion)" Condition="'%(PackageReference.Identity)' != 'GnomeMaui.Core'" />
+        <PackageReference Include="GnomeMaui.Controls" Version="$(GnomeMauiVersion)" Condition="'%(PackageReference.Identity)' != 'GnomeMaui.Controls'" />
+
+        <!-- GirCore packages (if not already present) -->
+        <PackageReference Include="GirCore.Adw-1" Version="$(GirCoreVersion)" Condition="'%(PackageReference.Identity)' != 'GirCore.Adw-1'" />
+        <PackageReference Include="GirCore.GLib-2.0" Version="$(GirCoreVersion)" Condition="'%(PackageReference.Identity)' != 'GirCore.GLib-2.0'" />
+        <PackageReference Include="GirCore.Gtk-4.0" Version="$(GirCoreVersion)" Condition="'%(PackageReference.Identity)' != 'GirCore.Gtk-4.0'" />
+    </ItemGroup>
+</Project>

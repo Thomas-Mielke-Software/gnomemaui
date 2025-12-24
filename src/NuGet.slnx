@@ -1,0 +1,44 @@
+<Solution>
+    <Configurations>
+        <Platform Name="Any CPU" />
+        <Platform Name="x64" />
+        <Platform Name="x86" />
+    </Configurations>
+
+    <Folder Name="/Solution Items/">
+        <File Path="global.json" />
+        <File Path="Directory.Build.props" />
+        <File Path="Directory.Build.targets" />
+        <File Path="Directory.Packages.props" />
+        <File Path="GnomeMaui.props" />
+        <File Path="Nuget.Common.props" />
+        <File Path="Versions.props" />
+        <File Path="Workload.props" />
+        <File Path="PublicAPI.targets" />
+    </Folder>
+
+    <Folder Name="/Tools/">
+        <Project Path="GnomeMaui.Tools/GnomeMaui.Tools.csproj" />
+    </Folder>
+
+    <Folder Name="/Workload/">
+        <Project Path="GnomeMaui.Sdk.Manifest/GnomeMaui.Sdk.Manifest.csproj" />
+        <Project Path="GnomeMaui.Sdk/GnomeMaui.Sdk.csproj" />
+    </Folder>
+
+    <Folder Name="/Build.Tasks/">
+        <Project Path="GnomeMaui.Controls.BindingSourceGen/GnomeMaui.Controls.BindingSourceGen.csproj" />
+        <Project Path="GnomeMaui.Controls.Build.Tasks/GnomeMaui.Controls.Build.Tasks.csproj" />
+        <Project Path="GnomeMaui.Controls.SourceGen/GnomeMaui.Controls.SourceGen.csproj" />
+    </Folder>
+
+    <Project Path="GnomeMaui.Essentials/GnomeMaui.Essentials.csproj" />
+    <Project Path="GnomeMaui.Core/GnomeMaui.Core.csproj" />
+    <Project Path="GnomeMaui.Graphics/GnomeMaui.Graphics.csproj" />
+    <Project Path="GnomeMaui.SkiaSharp.Core/GnomeMaui.SkiaSharp.Core.csproj" />
+    <Project Path="GnomeMaui.SkiaSharp.Controls/GnomeMaui.SkiaSharp.Controls.csproj" />
+    <Project Path="GnomeMaui.Controls.Xaml/GnomeMaui.Controls.Xaml.csproj" />
+    <Project Path="GnomeMaui.Controls/GnomeMaui.Controls.csproj" />
+    <Project Path="GnomeMaui.Blazor/GnomeMaui.Blazor.csproj" />
+    <Project Path="GnomeMaui.Controls.Core/GnomeMaui.Controls.Core.csproj" />
+</Solution>

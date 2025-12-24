@@ -1,0 +1,31 @@
+<Project>
+    <PropertyGroup>
+        <DOTNETVersion>10.0</DOTNETVersion>
+
+        <!-- GNOME versions -->
+        <GNOMEName>gnome</GNOMEName>
+        <GNOMEVersion>48.0</GNOMEVersion>
+
+        <!-- GirCore versions -->
+        <GirCoreVersion>0.7.0</GirCoreVersion>
+
+        <!-- GNOME MAUI verions -->
+        <_GnomeMauiDotNetVersionMajor Condition=" '$(_GnomeMauiDotNetVersionMajor)' == '' ">10</_GnomeMauiDotNetVersionMajor>
+        <_GnomeMauiDotNetVersionMinor Condition=" '$(_GnomeMauiDotNetVersionMinor)' == '' ">0</_GnomeMauiDotNetVersionMinor>
+        <_GnomeMauiDotNetVersionBuild Condition=" '$(_GnomeMauiDotNetVersionBuild)' == '' ">1</_GnomeMauiDotNetVersionBuild>
+
+        <_GnomeMauiDotNetVersion Condition=" '$(_GnomeMauiDotNetVersion)' == '' ">$(_GnomeMauiDotNetVersionMajor).$(_GnomeMauiDotNetVersionMinor)</_GnomeMauiDotNetVersion>
+        <_GnomeMauiSdkVersion Condition=" '$(_GnomeMauiSdkVersion)' == '' ">$(_GnomeMauiDotNetVersionMajor).$(_GnomeMauiDotNetVersionMinor).$(_GnomeMauiDotNetVersionBuild)</_GnomeMauiSdkVersion>
+
+        <_GnomeMauiTfm Condition=" '$(_GnomeMauiTfm)' == '' ">net$(_GnomeMauiDotNetVersion)-$(GNOMEName)$(GNOMEVersion)</_GnomeMauiTfm>
+
+        <GnomeMauiPreview />
+        <GnomeMauiVersion>$(_GnomeMauiDotNetVersionMajor).$(_GnomeMauiDotNetVersionMinor).$(_GnomeMauiDotNetVersionBuild)$(GnomeMauiPreview)</GnomeMauiVersion>
+        <GnomeMauiSdkVersion>$(_GnomeMauiDotNetVersionMajor).$(_GnomeMauiDotNetVersionMinor).$(_GnomeMauiDotNetVersionBuild)</GnomeMauiSdkVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <!-- Default: include GNOME TFMs if workload is installed, unless explicitly disabled for initial build -->
+        <IsGNOME Condition=" '$(IsGNOME)' == '' ">true</IsGNOME>
+    </PropertyGroup>
+</Project>

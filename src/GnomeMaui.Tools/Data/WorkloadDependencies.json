@@ -1,0 +1,10 @@
+{
+	"gnomemaui.net.sdk": {
+		"workload": {
+			"alias": [
+				"maui-gnome"
+			],
+			"version": "10.0.1"
+		}
+	}
+}

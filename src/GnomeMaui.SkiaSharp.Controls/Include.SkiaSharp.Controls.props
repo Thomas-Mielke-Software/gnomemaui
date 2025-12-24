@@ -1,0 +1,31 @@
+<Project>
+    <ItemGroup>
+        <Compile Include="../../ext/skiasharp/source/SkiaSharp.Views.Maui/SkiaSharp.Views.Maui.Controls/AppHostBuilderExtensions.cs" Link="AppHostBuilderExtensions.cs" />
+        <Compile Include="../../ext/skiasharp/source/SkiaSharp.Views.Maui/SkiaSharp.Views.Maui.Controls/RendererTypes.cs" Link="RendererTypes.cs" />
+        <Compile Include="../../ext/skiasharp/source/SkiaSharp.Views.Maui/SkiaSharp.Views.Maui.Controls/SKCanvasView.cs" Link="SKCanvasView.cs" />
+        <Compile Include="../../ext/skiasharp/source/SkiaSharp.Views.Maui/SkiaSharp.Views.Maui.Controls/SKGLView.cs" Link="SKGLView.cs" />
+        <Compile Include="../../ext/skiasharp/source/SkiaSharp.Views.Maui/SkiaSharp.Views.Maui.Controls/SKImageSource.cs" Link="SKImageSource.cs" />
+    </ItemGroup>
+
+    <!-- <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'gnome'">
+        <Compile Remove="**/*.GNOME.cs" />
+        <Compile Remove="**/GNOME/*.cs" />
+        <None Include="**/*.GNOME.cs" />
+        <None Include="**/GNOME/*.cs" />
+
+        <Compile Include="../../ext/skiasharp/source/SkiaSharp.Views.Maui/SkiaSharp.Views.Maui.Core/Handlers/SKCanvasView/SKCanvasViewHandler.Ref.cs" Link="Handlers/SKCanvasView/SKCanvasViewHandler.netruntime.cs" />
+        <Compile Include="../../ext/skiasharp/source/SkiaSharp.Views.Maui/SkiaSharp.Views.Maui.Core/Handlers/SKGLView/SKGLViewHandler.Ref.cs" Link="Handlers/SKGLView/SKGLViewHandler.netruntime.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'gnome'">
+        <Compile Remove="**/*.netruntime.cs" />
+        <Compile Remove="**/NETRuntime/*.cs" />
+        <None Include="**/*.netruntime.cs" />
+        <None Include="**/NETRuntime/*.cs" />
+
+        <Compile Include="../GnomeMaui.SkiaSharp.Core/Handlers/SKCanvasView/SKCanvasViewHandler.GNOME.cs" Link="Handlers/SKCanvasView/SKCanvasViewHandler.GNOME.cs" />
+        <Compile Include="../GnomeMaui.SkiaSharp.Core/Handlers/SKCanvasView/SKDrawingArea.GNOME.cs" Link="Handlers/SKCanvasView/SKDrawingArea.GNOME.cs" />
+        <Compile Include="../GnomeMaui.SkiaSharp.Core/Handlers/SKGLView/SKGLViewHandler.GNOME.cs" Link="Handlers/SKGLView/SKGLViewHandler.GNOME.cs" />
+        <Compile Include="../GnomeMaui.SkiaSharp.Core/Handlers/SKGLView/SKGLArea.GNOME.cs" Link="Handlers/SKGLView/SKGLArea.GNOME.cs" />
+    </ItemGroup> -->
+</Project>

@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <TargetPlatformSupported>true</TargetPlatformSupported>
+        <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">@GNOME_VERSION@</TargetPlatformVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <SdkSupportedTargetPlatformVersion Include="@GNOME_VERSION@" />
+    </ItemGroup>
+</Project>

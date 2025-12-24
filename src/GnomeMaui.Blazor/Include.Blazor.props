@@ -1,0 +1,45 @@
+<Project>
+    <ItemGroup>
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/Maui/Properties/AssemblyInfo.cs" Link="Properties/AssemblyInfo.cs" />
+
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/Maui/BlazorWebView.cs" Link="BlazorWebView.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/Maui/BlazorWebViewHandler.cs" Link="BlazorWebViewHandler.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/Maui/IBlazorWebView.cs" Link="IBlazorWebView.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/Maui/IMauiBlazorWebViewBuilder.cs" Link="IMauiBlazorWebViewBuilder.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/Maui/MauiBlazorMarkerService.cs" Link="MauiBlazorMarkerService.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/Maui/MauiBlazorWebViewBuilder.cs" Link="MauiBlazorWebViewBuilder.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/Maui/MauiDispatcher.cs" Link="MauiDispatcher.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/Maui/RootComponent.cs" Link="RootComponent.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/Maui/RootComponentsCollection.cs" Link="RootComponentsCollection.cs" />
+
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/SharedSource/BlazorWebViewDeveloperTools.cs" Link="SharedSource/BlazorWebViewDeveloperTools.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/SharedSource/BlazorWebViewInitializedEventArgs.cs" Link="SharedSource/BlazorWebViewInitializedEventArgs.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/SharedSource/BlazorWebViewInitializingEventArgs.cs" Link="SharedSource/BlazorWebViewInitializingEventArgs.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/SharedSource/BlazorWebViewServiceCollectionExtensions.cs" Link="SharedSource/BlazorWebViewServiceCollectionExtensions.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/SharedSource/HostAddressHelper.cs" Link="SharedSource/HostAddressHelper.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/SharedSource/Log.cs" Link="SharedSource/Log.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/SharedSource/QueryStringHelper.cs" Link="SharedSource/QueryStringHelper.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/SharedSource/StaticContentHotReloadManager.cs" Link="SharedSource/StaticContentHotReloadManager.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/SharedSource/UrlLoadingEventArgs.cs" Link="SharedSource/UrlLoadingEventArgs.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/SharedSource/UrlLoadingStrategy.cs" Link="SharedSource/UrlLoadingStrategy.cs" />
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/SharedSource/WebView2WebViewManager.cs" Link="SharedSource/WebView2WebViewManager.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'gnome'">
+        <Compile Remove="**/*.GNOME.cs" />
+        <Compile Remove="**/GNOME/*.cs" />
+        <Compile Remove="**/*.Platform.cs" />
+        <None Include="**/*.GNOME.cs" />
+        <None Include="**/GNOME/*.cs" />
+        <None Include="**/*.Platform.cs" />
+
+        <Compile Include="../../ext/maui/src/BlazorWebView/src/Maui/Standard/BlazorWebViewHandler.cs" Link="Standard/BlazorWebViewHandler.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'gnome'">
+        <Compile Remove="**/*.netruntime.cs" />
+        <Compile Remove="**/NETRuntime/*.cs" />
+        <None Include="**/*.netruntime.cs" />
+        <None Include="**/NETRuntime/*.cs" />
+    </ItemGroup>
+</Project>

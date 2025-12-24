@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.Build.NoTargets">
+    <Import Project="$(MSBuildThisFileDirectory)/../Nuget.Common.props" />
+    <!-- <Import Project="$(MSBuildThisFileDirectory)/../GnomeMaui.props" /> -->
+    <Import Project="$(MSBuildThisFileDirectory)/../Workload.props" />
+
+    <Import Project="$(MSBuildThisFileDirectory)/../../ext/maui/eng/ReplaceText.targets" />
+
+    <PropertyGroup>
+        <PackageId>GnomeMaui.Sdk</PackageId>
+
+        <Title>GNOME MAUI .NET SDK</Title>
+        <Description>GNOME MAUI .NET SDK for .NET MAUI on GNOME.</Description>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IncludeSymbols>false</IncludeSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <_JsonInputFile Include="AutoImport.props" OutputPath="$(IntermediateOutputPath)AutoImport.props" Pack="True" />
+        <_JsonInputFile Include="BundledVersions.in.targets" OutputPath="$(IntermediateOutputPath)BundledVersions.targets" Pack="True" />
+        <_JsonInputFile Include="GnomeMaui.Sdk.targets" OutputPath="$(IntermediateOutputPath)GnomeMaui.Sdk.targets" Pack="True" />
+        <_JsonInputFile Include="GnomeMaui.Sdk.SupportedPlatforms.targets" OutputPath="$(IntermediateOutputPath)GnomeMaui.Sdk.SupportedPlatforms.targets" Pack="True" />
+        <_JsonInputFile Include="Sdk.targets" OutputPath="$(IntermediateOutputPath)Sdk.targets" Pack="True" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <PackDependsOn>_GenerateBundledVersions;$(PackDependsOn)</PackDependsOn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="$(IntermediateOutputPath)AutoImport.props" Link="AutoImport.props" CopyToOutputDirectory="PreserveNewest" Pack="True" PackagePath="Sdk" Visible="false" />
+        <None Include="$(IntermediateOutputPath)BundledVersions.targets" Link="BundledVersions.targets" CopyToOutputDirectory="PreserveNewest" Pack="True" PackagePath="Sdk" Visible="false" />
+        <None Include="$(IntermediateOutputPath)GnomeMaui.Sdk.targets" Link="GnomeMaui.Sdk.targets" CopyToOutputDirectory="PreserveNewest" Pack="True" PackagePath="Sdk" Visible="false" />
+        <None Include="$(IntermediateOutputPath)GnomeMaui.Sdk.SupportedPlatforms.targets" Link="GnomeMaui.Sdk.SupportedPlatforms.targets" CopyToOutputDirectory="PreserveNewest" Pack="True" PackagePath="Sdk" Visible="false" />
+        <None Include="$(IntermediateOutputPath)Sdk.targets" Link="Sdk.targets" CopyToOutputDirectory="PreserveNewest" Pack="True" PackagePath="Sdk" Visible="false" />
+    </ItemGroup>
+
+    <Target Name="_GenerateBundledVersions" BeforeTargets="GenerateNuspec;Build;AssignTargetPaths;Pack" Inputs="$(MSBuildProjectFile);@(_JsonInputFile)" Outputs="@(_JsonInputFile->'%(OutputPath)')">
+        <ItemGroup>
+            <_VersionsToReplace Include="@GNOMEMAUI_VERSION@" PropertyName="GnomeMauiVersion" />
+            <_VersionsToReplace Include="@GNOMEMAUI_SDK_VERSION@" PropertyName="GnomeMauiSdkVersion" />
+            <_VersionsToReplace Include="@GNOMEMAUI_TFM@" PropertyName="_GnomeMauiTfm" />
+            <_VersionsToReplace Include="@GIRCORE_VERSION@" PropertyName="GirCoreVersion" />
+            <_VersionsToReplace Include="@GNOME_VERSION@" PropertyName="GNOMEVersion" />
+            <_VersionsToReplace Include="@DOTNET_VERSION@" PropertyName="DOTNETVersion" />
+        </ItemGroup>
+
+        <CreateItem Include="@(_JsonInputFile)" AdditionalMetadata="OldValue=%(_VersionsToReplace.Identity);NewValue=$(%(_VersionsToReplace.PropertyName))">
+            <Output TaskParameter="Include" ItemName="_JsonVariableMatrix" />
+        </CreateItem>
+
+        <Copy SourceFiles="%(_JsonInputFile.Identity)" DestinationFiles="%(_JsonInputFile.OutputPath)" />
+
+        <ReplaceText Input="%(_JsonVariableMatrix.OutputPath)" Output="%(_JsonVariableMatrix.OutputPath)" OldValue="%(_JsonVariableMatrix.OldValue)" NewValue="%(_JsonVariableMatrix.NewValue)" />
+    </Target>
+</Project>

@@ -1,0 +1,50 @@
+<Project>
+    <ItemGroup>
+        <Compile Include="../../ext/maui/src/Essentials/src/AppActions/AppActions.shared.cs" Link="AppActions/AppActions.shared.cs" />
+
+        <Compile Include="../../ext/maui/src/Essentials/src/AppInfo/AppInfo.shared.cs" Link="AppInfo/AppInfo.shared.cs" />
+
+        <Compile Include="../../ext/maui/src/Essentials/src/AppInfo/AppTheme.shared.cs" Link="AppInfo/AppTheme.shared.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/AppInfo/LayoutDirection.shared.cs" Link="AppInfo/LayoutDirection.shared.cs" />
+
+        <Compile Include="../../ext/maui/src/Essentials/src/DeviceDisplay/DeviceDisplay.shared.cs" Link="DeviceDisplay/DeviceDisplay.shared.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/DeviceInfo/DeviceInfo.shared.cs" Link="DeviceInfo/DeviceInfo.shared.cs" />
+
+        <Compile Include="../../ext/maui/src/Essentials/src/Preferences/Preferences.shared.cs" Link="Preferences/Preferences.shared.cs" />
+
+        <Compile Include="../../ext/maui/src/Essentials/src/Types/DevicePlatform.shared.cs" Link="Types/DevicePlatform.shared.cs" />
+
+        <Compile Include="../../ext/maui/src/Essentials/src/Types/DeviceIdiom.shared.cs" Link="Types/DeviceIdiom.shared.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/Types/DisplayInfo.shared.cs" Link="Types/DisplayInfo.shared.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/Types/DisplayOrientation.shared.cs" Link="Types/DisplayOrientation.shared.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/Types/DisplayRotation.shared.cs" Link="Types/DisplayRotation.shared.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/Types/Shared/Exceptions.shared.cs" Link="Types/Shared/Exceptions.shared.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/Types/Shared/Utils.shared.cs" Link="Types/Shared/Utils.shared.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/Types/Shared/WebUtils.shared.cs" Link="Types/Shared/WebUtils.shared.cs" />
+
+        <Compile Include="../../ext/maui/src/Essentials/src/VersionTracking/VersionTracking.shared.cs" Link="VersionTracking/VersionTracking.shared.cs" />
+
+        <Compile Include="../../ext/maui/src/Essentials/src/Screenshot/Screenshot.shared.cs" Link="Screenshot/Screenshot.shared.cs" />
+    </ItemGroup>
+
+    <!-- Files for net10.0 target -->
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'gnome'">
+        <Compile Remove="**/*.GNOME.cs" />
+        <None Include="**/*.GNOME.cs" />
+
+        <Compile Include="../../ext/maui/src/Essentials/src/AppActions/AppActions.netstandard.tvos.watchos.macos.tizen.cs" Link="AppActions/AppActions.netruntime.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/AppInfo/AppInfo.netstandard.cs" Link="AppInfo/AppInfo.netruntime.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/DeviceDisplay/DeviceDisplay.netstandard.tvos.watchos.cs" Link="DeviceDisplay/DeviceDisplay.netruntime.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/DeviceInfo/DeviceInfo.netstandard.cs" Link="DeviceInfo/DeviceInfo.netruntime.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/Preferences/Preferences.netstandard.cs" Link="Preferences/Preferences.netruntime.cs" />
+        <Compile Include="../../ext/maui/src/Essentials/src/Screenshot/Screenshot.netstandard.watchos.macos.cs" Link="Screenshot/Screenshot.netruntime.cs" />
+    </ItemGroup>
+
+    <!-- Files for net10.0-gnome target -->
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'gnome'">
+        <Compile Remove="**/*.netruntime.cs" />
+        <None Include="**/*.netruntime.cs" />
+
+        <!-- <Compile Include="**/*.GNOME.cs" /> -->
+    </ItemGroup>
+</Project>

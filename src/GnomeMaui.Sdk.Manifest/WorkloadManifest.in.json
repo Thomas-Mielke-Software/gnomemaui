@@ -1,0 +1,88 @@
+{
+	"version": "@GNOMEMAUI_SDK_VERSION@",
+	"workloads": {
+		"maui-gnome": {
+			"description": ".NET MAUI SDK for GNOME",
+			"extends": [
+				"maui-blazor"
+			],
+			"packs": [
+				"GnomeMaui.Sdk",
+				"GnomeMaui.Core",
+				"GnomeMaui.Controls",
+				"GnomeMaui.Controls.Build.Tasks",
+				"GnomeMaui.Controls.Core",
+				"GnomeMaui.Controls.Xaml",
+				"GnomeMaui.Essentials",
+				"GnomeMaui.Graphics",
+				"GnomeMaui.SkiaSharp.Core",
+				"GnomeMaui.SkiaSharp.Controls",
+				"GnomeMaui.Blazor",
+				"GirCore.Adw-1",
+				"GirCore.GLib-2.0",
+				"GirCore.Gtk-4.0"
+			]
+		}
+	},
+	"packs": {
+		"GnomeMaui.Sdk": {
+			"kind": "sdk",
+			"version": "@GNOMEMAUI_SDK_VERSION@",
+			"alias-to": {
+				"any": "GnomeMaui.Sdk"
+			}
+		},
+		"GnomeMaui.Core": {
+			"kind": "library",
+			"version": "@GNOMEMAUI_VERSION@"
+		},
+		"GnomeMaui.Controls": {
+			"kind": "library",
+			"version": "@GNOMEMAUI_VERSION@"
+		},
+		"GnomeMaui.Controls.Build.Tasks": {
+			"kind": "library",
+			"version": "@GNOMEMAUI_VERSION@"
+		},
+		"GnomeMaui.Controls.Core": {
+			"kind": "library",
+			"version": "@GNOMEMAUI_VERSION@"
+		},
+		"GnomeMaui.Controls.Xaml": {
+			"kind": "library",
+			"version": "@GNOMEMAUI_VERSION@"
+		},
+		"GnomeMaui.Essentials": {
+			"kind": "library",
+			"version": "@GNOMEMAUI_VERSION@"
+		},
+		"GnomeMaui.Graphics": {
+			"kind": "library",
+			"version": "@GNOMEMAUI_VERSION@"
+		},
+		"GnomeMaui.SkiaSharp.Core": {
+			"kind": "library",
+			"version": "@GNOMEMAUI_VERSION@"
+		},
+		"GnomeMaui.SkiaSharp.Controls": {
+			"kind": "library",
+			"version": "@GNOMEMAUI_VERSION@"
+		},
+		"GnomeMaui.Blazor": {
+			"kind": "library",
+			"version": "@GNOMEMAUI_VERSION@"
+		},
+		"GirCore.Adw-1": {
+			"kind": "library",
+			"version": "@GIRCORE_VERSION@"
+		},
+		"GirCore.GLib-2.0": {
+			"kind": "library",
+			"version": "@GIRCORE_VERSION@"
+		},
+		"GirCore.Gtk-4.0": {
+			"kind": "library",
+			"version": "@GIRCORE_VERSION@"
+		}
+	}
+}

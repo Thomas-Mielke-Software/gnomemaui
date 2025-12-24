@@ -1,0 +1,5 @@
+<Project>
+    <Import Project="GnomeMaui.Sdk.SupportedPlatforms.targets" />
+    <Import Project="BundledVersions.targets" />
+    <Import Project="GnomeMaui.Sdk.targets" Condition=" '$(UseGnomeMaui)' == 'True' " />
+</Project>

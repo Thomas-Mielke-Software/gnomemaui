@@ -1,0 +1,26 @@
+<Project>
+    <Import Project="Versions.props" />
+
+    <PropertyGroup>
+        <LangVersion>preview</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <IsPublishable>false</IsPublishable>
+
+        <GnomeMauiRootDirectory>$(MSBuildThisFileDirectory)</GnomeMauiRootDirectory>
+        <GnomeMauiSrcDirectory>$(MSBuildThisFileDirectory)/</GnomeMauiSrcDirectory>
+
+        <!-- GNOME MAUI: Enable backward compatibility to avoid Obsolete attribute errors -->
+        <_MauiXamlSourceGenBackCompat>true</_MauiXamlSourceGenBackCompat>
+        <DefineConstants Condition=" '$(_MauiXamlSourceGenBackCompat)' == 'true' ">$(DefineConstants);_MAUIXAML_SOURCEGEN_BACKCOMPAT</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetPlatformSupported Condition="'$(TargetPlatformIdentifier)' == 'gnome'">true</TargetPlatformSupported>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <CompilerVisibleProperty Include="RootNamespace" />
+        <CompilerVisibleProperty Include="ProjectDir" />
+    </ItemGroup>
+</Project>

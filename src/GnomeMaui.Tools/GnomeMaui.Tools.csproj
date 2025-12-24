@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <!-- PackAsTool does not support platform-specific TFMs -->
+    <PropertyGroup>
+        <IsGNOME>false</IsGNOME>
+    </PropertyGroup>
+
+    <Import Project="$(MSBuildThisFileDirectory)/../Nuget.Common.props" />
+    <Import Project="$(MSBuildThisFileDirectory)/../GnomeMaui.props" />
+
+    <PropertyGroup>
+        <TargetFrameworks>net$(_GnomeMauiDotNetVersion)</TargetFrameworks>
+
+        <IsPublishable>true</IsPublishable>
+
+        <OutputType>Exe</OutputType>
+        <PackAsTool>true</PackAsTool>
+
+        <ToolCommandName>dotnet-gnomemaui</ToolCommandName>
+
+        <PackageId>GnomeMaui.Tools</PackageId>
+        <PackageVersion>$(GnomeMauiSdkVersion)</PackageVersion>
+
+        <Description>GNOME MAUI .NET Command-line Tools.</Description>
+    </PropertyGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Data\WorkloadDependencies.json" LogicalName="WorkloadDependencies.json" />
+        <EmbeddedResource Include="Data\WorkloadManifest.json" LogicalName="WorkloadManifest.json" />
+        <EmbeddedResource Include="Data\WorkloadManifest.targets" LogicalName="WorkloadManifest.targets" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../GnomeMaui.Sdk.Manifest/GnomeMaui.Sdk.Manifest.csproj" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+</Project>

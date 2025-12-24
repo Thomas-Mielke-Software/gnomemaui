@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiTest1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiTest1"
+    Title="Menu">
+
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:Home}"
+            Route="home" />
+
+        <ShellContent
+            Title="Counter"
+            ContentTemplate="{DataTemplate local:Counter}"
+            Route="counter" />
+
+        <ShellContent
+            Title="Christmas tree"
+            ContentTemplate="{DataTemplate local:Christmas}"
+            Route="christmas" />
+
+        <ShellContent
+            Title="Julia Fractal GPU"
+            ContentTemplate="{DataTemplate local:JuliaFractal}"
+            Route="juliafractal" />
+
+</Shell>

@@ -1,0 +1,145 @@
+<Project>
+    <!-- Files from Controls/src/Core linked in MAUI's SourceGen -->
+    <ItemGroup>
+        <Compile Include="../../ext/maui/src/Controls/src/Core/Internals/INameScope.cs" Link="INameScope.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Core/IXmlLineInfoProvider.cs" Link="IXmlLineInfoProvider.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Core/XamlParseException.cs" Link="XamlParseException.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Core/XmlLineInfo.cs" Link="XmlLineInfo.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Core/XmlnsDefinitionAttribute.cs" Link="XmlnsDefinitionAttribute.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Core/XmlnsPrefixAttribute.cs" Link="XmlnsPrefixAttribute.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs" Link="AllowImplicitXmlnsDeclarationAttribute.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/IDictionaryExtensions.cs" Link="IDictionaryExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/IExpressionParser.cs" Link="IExpressionParser.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/IXmlLineInfoExtensions.cs" Link="IXmlLineInfoExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/NodeExtensions.cs" Link="NodeExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/MarkupExpressionParser.cs" Link="MarkupExpressionParser.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/PruneIgnoredNodesVisitor.cs" Link="PruneIgnoredNodesVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/RemoveDuplicateDesignNodes.cs" Link="RemoveDuplicateDesignNodes.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/SimplifyOnPlatformVisitor.cs" Link="SimplifyOnPlatformVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/SimplifyTypeExtensionVisitor.cs" Link="SimplifyTypeExtensionVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/TypeArgumentsParser.cs" Link="TypeArgumentsParser.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/XamlInflator.cs" Link="XamlInflator.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/XamlLoader.Types.cs" Link="XamlLoader.Types.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/XamlNode.cs" Link="XamlNode.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/XamlNodeVisitor.cs" Link="XamlNodeVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/XamlParser.cs" Link="XamlParser.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/XamlParser.Namespaces.cs" Link="XamlParser.Namespaces.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/XmlName.cs" Link="XmlName.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/XmlType.cs" Link="XmlType.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Xaml/XmlnsHelper.cs" Link="XmlnsHelper.cs" />
+        <Compile Include="../../ext/maui/src/Core/src/Services/Crc64.cs" Link="Crc64.cs" />
+        <Compile Include="../../ext/maui/src/Core/src/Services/Crc64HashAlgorithm.cs" Link="Crc64HashAlgorithm.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/ColorUtils.cs" Link="ColorUtils.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/NumericExtensions.cs" Link="NumericExtensions.cs" />
+    </ItemGroup>
+
+    <!-- Files from Controls/src/SourceGen -->
+    <ItemGroup>
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/AnalyzerConfigOptionsExtensions.cs" Link="AnalyzerConfigOptionsExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/AssemblyAttributes.cs" Link="AssemblyAttributes.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/AttributeDataExtensions.cs" Link="AttributeDataExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/CodeBehindCodeWriter.cs" Link="CodeBehindCodeWriter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/CompilationExtensions.cs" Link="CompilationExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/CompilationReferencesComparer.cs" Link="CompilationReferencesComparer.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/CompiledBindingMarkup.cs" Link="CompiledBindingMarkup.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/Descriptors.cs" Link="Descriptors.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/GeneratorHelpers.cs" Link="GeneratorHelpers.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/GlobalSuppressions.cs" Link="GlobalSuppressions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/IAssemblySymbolExtensions.cs" Link="IAssemblySymbolExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/IMethodSymbolExtensions.cs" Link="IMethodSymbolExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/ISymbolExtensions.cs" Link="ISymbolExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/ITypeSymbolExtensions.Maui.cs" Link="ITypeSymbolExtensions.Maui.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/ITypeSymbolExtensions.cs" Link="ITypeSymbolExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/IncrementalValueProviderExtensions.cs" Link="IncrementalValueProviderExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/IndentedTextWriterExtensions.cs" Link="IndentedTextWriterExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/InitializeComponentCodeWriter.cs" Link="InitializeComponentCodeWriter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/KnownMarkups.cs" Link="KnownMarkups.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/LocalVariable.cs" Link="LocalVariable.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/LocationHelpers.cs" Link="LocationHelpers.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/NamingHelpers.cs" Link="NamingHelpers.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/NodeSGExtensions.cs" Link="NodeSGExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/PrePost.cs" Link="PrePost.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/ProjectItem.cs" Link="ProjectItem.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/SGRootNode.cs" Link="SGRootNode.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/ServiceProviderExtensions.cs" Link="ServiceProviderExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/SetPropertyHelpers.cs" Link="SetPropertyHelpers.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/SourceGenContext.cs" Link="SourceGenContext.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/SourceGenContextExtensions.cs" Link="SourceGenContextExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TrackingNames.cs" Link="TrackingNames.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/XamlGenerator.cs" Link="XamlGenerator.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/XamlProjectItemForCB.cs" Link="XamlProjectItemForCB.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/XamlProjectItemForIC.cs" Link="XamlProjectItemForIC.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/XamlServiceProvider.cs" Link="XamlServiceProvider.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/XmlTypeExtensions.cs" Link="XmlTypeExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/compat.cs" Link="compat.cs" />
+
+        <!-- TypeConverters -->
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/BindablePropertyConverter.cs" Link="TypeConverters/BindablePropertyConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/ColorConverter.cs" Link="TypeConverters/ColorConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/ColumnDefinitionCollectionConverter.cs" Link="TypeConverters/ColumnDefinitionCollectionConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/ConstraintConverter.cs" Link="TypeConverters/ConstraintConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/CornerRadiusConverter.cs" Link="TypeConverters/CornerRadiusConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/EasingConverter.cs" Link="TypeConverters/EasingConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/EnumConverter.cs" Link="TypeConverters/EnumConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/FlexBasisConverter.cs" Link="TypeConverters/FlexBasisConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/FlowDirectionConverter.cs" Link="TypeConverters/FlowDirectionConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/FontSizeConverter.cs" Link="TypeConverters/FontSizeConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/GridLengthConverter.cs" Link="TypeConverters/GridLengthConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/ISGTypeConverter.cs" Link="TypeConverters/ISGTypeConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/ImageSourceConverter.cs" Link="TypeConverters/ImageSourceConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/LayoutOptionsConverter.cs" Link="TypeConverters/LayoutOptionsConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/ListStringConverter.cs" Link="TypeConverters/ListStringConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/PathGeometryConverter.cs" Link="TypeConverters/PathGeometryConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/PointCollectionConverter.cs" Link="TypeConverters/PointCollectionConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/PointConverter.cs" Link="TypeConverters/PointConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/RDSourceConverter.cs" Link="TypeConverters/RDSourceConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/RectConverter.cs" Link="TypeConverters/RectConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/RowDefinitionCollectionConverter.cs" Link="TypeConverters/RowDefinitionCollectionConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/StrokeShapeConverter.cs" Link="TypeConverters/StrokeShapeConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/ThicknessConverter.cs" Link="TypeConverters/ThicknessConverter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/TypeConverterRegistry.cs" Link="TypeConverters/TypeConverterRegistry.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/TypeConverters/TypeTypeConverter.cs" Link="TypeConverters/TypeTypeConverter.cs" />
+
+        <!-- Visitors -->
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/Visitors/CreateValuesVisitor.cs" Link="Visitors/CreateValuesVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/Visitors/ExpandMarkupsVisitor.cs" Link="Visitors/ExpandMarkupsVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/Visitors/SetFieldsForXNamesVisitor.cs" Link="Visitors/SetFieldsForXNamesVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/Visitors/SetNamescopesAndRegisterNames.cs" Link="Visitors/SetNamescopesAndRegisterNames.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/Visitors/SetPropertiesVisitor.cs" Link="Visitors/SetPropertiesVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/Visitors/SetResourcesVisitor.cs" Link="Visitors/SetResourcesVisitor.cs" />
+    </ItemGroup>
+
+    <!-- Main MauiGResources files -->
+    <ItemGroup>
+        <Compile Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.Designer.cs" Link="xlf/MauiGResources.Designer.cs" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/MauiGResources.resx" Link="MauiGResources.resx" />
+    </ItemGroup>
+
+    <!-- Localized resources (xlf folder) -->
+    <ItemGroup>
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.cs.resx" Link="xlf/MauiGResources.cs.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.de.resx" Link="xlf/MauiGResources.de.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.es.resx" Link="xlf/MauiGResources.es.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.fr.resx" Link="xlf/MauiGResources.fr.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.it.resx" Link="xlf/MauiGResources.it.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.ja.resx" Link="xlf/MauiGResources.ja.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.ko.resx" Link="xlf/MauiGResources.ko.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.pl.resx" Link="xlf/MauiGResources.pl.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.pt-BR.resx" Link="xlf/MauiGResources.pt-BR.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.ru.resx" Link="xlf/MauiGResources.ru.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.tr.resx" Link="xlf/MauiGResources.tr.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.zh-Hans.resx" Link="xlf/MauiGResources.zh-Hans.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/SourceGen/xlf/MauiGResources.zh-Hant.resx" Link="xlf/MauiGResources.zh-Hant.resx" />
+    </ItemGroup>
+
+    <!-- Banned symbols list as AdditionalFiles -->
+    <ItemGroup>
+        <AdditionalFiles Include="../../ext/maui/src/Controls/src/SourceGen/BannedSymbols.txt" Link="BannedSymbols.txt" />
+    </ItemGroup>
+
+    <!-- Analyzer releases documentation as AdditionalFiles -->
+    <ItemGroup>
+        <AdditionalFiles Include="../../ext/maui/src/Controls/src/SourceGen/AnalyzerReleases.Shipped.md" Link="AnalyzerReleases.Shipped.md" />
+        <AdditionalFiles Include="../../ext/maui/src/Controls/src/SourceGen/AnalyzerReleases.Unshipped.md" Link="AnalyzerReleases.Unshipped.md" />
+    </ItemGroup>
+</Project>

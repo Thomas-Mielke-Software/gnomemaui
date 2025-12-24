@@ -1,0 +1,23 @@
+<Project>
+    <PropertyGroup Condition="'$(IsGNOME)' == 'True'">
+        <SupportedOSPlatformVersion>$(GNOMEVersion)</SupportedOSPlatformVersion>
+        <TargetPlatformMinVersion>$(GNOMEVersion)</TargetPlatformMinVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'gnome'">
+        <DefineConstants>$(DefineConstants);GNOME;PLATFORM</DefineConstants>
+    </PropertyGroup>
+
+    <Target Name="PrintDetect" BeforeTargets="Build">
+        <Message Text="DEBUG:" Importance="high" />
+        <Message Text="IsGNOME                    = $(IsGNOME)" Importance="high" />
+        <Message Text="GnomeMauiVersion           = $(GnomeMauiVersion)" Importance="high" />
+        <Message Text="GnomeMauiSdkVersion        = $(GnomeMauiSdkVersion)" Importance="high" />
+        <Message Text="_GnomeMauiTfm              = $(_GnomeMauiTfm)" Importance="high" />
+        <Message Text="SupportedOSPlatformVersion = $(SupportedOSPlatformVersion)" Importance="high" />
+        <Message Text="TargetPlatformMinVersion   = $(TargetPlatformMinVersion)" Importance="high" />
+        <Message Text="TargetPlatformIdentifier   = $(TargetPlatformIdentifier)" Importance="high" />
+        <Message Text="TargetPlatformSupported    = $(TargetPlatformSupported)" Importance="high" />
+        <Message Text="DefineConstants            = $(DefineConstants)" Importance="high" />
+    </Target>
+</Project>

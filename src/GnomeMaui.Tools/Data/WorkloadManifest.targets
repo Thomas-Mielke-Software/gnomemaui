@@ -1,0 +1,17 @@
+<Project>
+    <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == '.NETCoreApp' and $([MSBuild]::VersionGreaterThanOrEquals($(TargetFrameworkVersion), '10.0')) ">
+        <SdkSupportedTargetPlatformIdentifier Include="gnome" DisplayName="GNOME" />
+    </ItemGroup>
+
+    <PropertyGroup Condition=" '$(TargetPlatformIdentifier)' == 'gnome' ">
+        <TargetPlatformSupported>true</TargetPlatformSupported>
+        <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">48.0</TargetPlatformVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectCapability Condition=" '$(UseMauiGnome)' == 'True' " Include="UseMauiGnome" />
+    </ItemGroup>
+
+    <Import Condition=" ('$(UseMauiGnome)' == 'True') and ('$(TargetFrameworkIdentifier)' == '.NETCoreApp')" Project="Sdk.targets" Sdk="GnomeMaui.Sdk" />
+    <Import Condition=" ('$(TargetPlatformIdentifier)' == 'gnome') and ($([MSBuild]::VersionEquals($(TargetFrameworkVersion), '10.0')))" Project="Sdk.targets" Sdk="GnomeMaui.Sdk" />
+</Project>

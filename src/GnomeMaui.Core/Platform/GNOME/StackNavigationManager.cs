@@ -1,0 +1,222 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Gtk;
+
+namespace Microsoft.Maui.Platform;
+
+public interface IToolbarContainer
+{
+	void SetToolbar(Widget toolbar);
+}
+
+public class StackNavigationManager : Gtk.Box, IToolbarContainer
+{
+	Dictionary<IView, Gtk.Widget> _pageMap = new Dictionary<IView, Gtk.Widget>();
+	Dictionary<IView, IViewHandler?> _handlerMap = new Dictionary<IView, IViewHandler?>();
+
+	Gtk.Widget? _toolbar;
+	Gtk.Box? _navigationContainer;
+
+	List<IView> NavigationStack { get; set; } = new List<IView>();
+
+	protected IMauiContext? MauiContext { get; set; }
+
+	protected internal IStackNavigation? NavigationView { get; set; }
+
+	protected NavigationStack PlatformNavigation { get; }
+
+	public StackNavigationManager()
+	{
+		SetOrientation(Gtk.Orientation.Vertical);
+		SetSpacing(0);
+		SetHexpand(true);
+		SetVexpand(true);
+
+		_navigationContainer = Gtk.Box.New(Gtk.Orientation.Vertical, 0);
+		_navigationContainer.SetHexpand(true);
+		_navigationContainer.SetVexpand(true);
+
+		PlatformNavigation = new NavigationStack(_navigationContainer);
+
+		Append(_navigationContainer);
+	}
+
+	public void SetToolbar(Gtk.Widget toolbar)
+	{
+		if (_toolbar != null)
+		{
+			Remove(_toolbar);
+			_toolbar = null;
+		}
+
+		_toolbar = toolbar;
+		Prepend(toolbar);
+
+		// Ensure toolbar back button reflects current stack
+		UpdateToolbarBackButton();
+	}
+
+	public virtual void Connect(IView navigationView, IMauiContext mauiContext)
+	{
+		NavigationView = (IStackNavigation)navigationView;
+		MauiContext = mauiContext;
+	}
+
+	public virtual void Disconnect()
+	{
+		NavigationView = null;
+		MauiContext = null;
+	}
+
+	public virtual async void RequestNavigation(NavigationRequest e)
+	{
+		var newPageStack = new List<IView>(e.NavigationStack);
+		var previousNavigationStack = NavigationStack;
+		var previousNavigationStackCount = previousNavigationStack.Count;
+		bool initialNavigation = previousNavigationStackCount == 0;
+
+		if (initialNavigation)
+		{
+			await InitializeStack((IReadOnlyList<IView>)newPageStack, e.Animated);
+			NavigationStack = newPageStack;
+			NavigationFinished(NavigationStack);
+			return;
+		}
+
+		if (newPageStack.Count > 0 && previousNavigationStackCount > 0 &&
+			newPageStack[newPageStack.Count - 1] == previousNavigationStack[previousNavigationStackCount - 1])
+		{
+			SyncBackStackToNavigationStack(newPageStack);
+			NavigationStack = newPageStack;
+			NavigationFinished(NavigationStack);
+			return;
+		}
+
+		if (newPageStack.Count > previousNavigationStackCount)
+		{
+			await PushToSync(newPageStack, e.Animated);
+			NavigationStack = newPageStack;
+			NavigationFinished(NavigationStack);
+		}
+		else
+		{
+			await PopToSync(newPageStack, e.Animated);
+			NavigationStack = newPageStack;
+			NavigationFinished(NavigationStack);
+		}
+	}
+
+	protected virtual async Task InitializeStack(IReadOnlyList<IView> newStack, bool animated)
+	{
+		var navigationStack = newStack;
+		if (navigationStack.Count == 0)
+		{
+			return;
+		}
+
+		var top = navigationStack[navigationStack.Count - 1];
+		foreach (var page in navigationStack)
+		{
+			await PlatformNavigation.Push(GetNavigationItem(page), page == top && animated);
+		}
+	}
+
+	void SyncBackStackToNavigationStack(List<IView> newStack)
+	{
+		if (newStack.Count > NavigationStack.Count)
+		{
+			for (int i = 0; i < newStack.Count; i++)
+			{
+				if (NavigationStack.IndexOf(newStack[i]) == -1)
+				{
+					PlatformNavigation.Insert(GetNavigationItem(NavigationStack[i]), GetNavigationItem(newStack[i]));
+				}
+			}
+		}
+		else
+		{
+			foreach (var page in NavigationStack)
+			{
+				if (newStack.IndexOf(page) == -1)
+				{
+					PlatformNavigation.Pop(GetNavigationItem(page));
+					_pageMap.Remove(page);
+					if (_handlerMap.TryGetValue(page, out var handler))
+					{
+						_handlerMap.Remove(page);
+					}
+				}
+			}
+		}
+	}
+
+	async Task PushToSync(List<IView> newStack, bool animated)
+	{
+		int start = NavigationStack.Count;
+		for (int i = start; i < newStack.Count; i++)
+		{
+			var isTop = i + 1 == newStack.Count;
+			var widget = GetNavigationItem(newStack[i]);
+			await PlatformNavigation.Push(widget, isTop && animated);
+		}
+	}
+
+	async Task PopToSync(List<IView> newStack, bool animated)
+	{
+		int start = newStack.Count;
+		for (int i = start; i < NavigationStack.Count; i++)
+		{
+			var isLast = i + 1 == NavigationStack.Count;
+			var page = NavigationStack[i];
+
+			if (isLast)
+			{
+				await PlatformNavigation.Pop(animated);
+			}
+			else
+			{
+				PlatformNavigation.Pop(GetNavigationItem(NavigationStack[i]));
+			}
+			_pageMap.Remove(page);
+			if (_handlerMap.TryGetValue(page, out var handler))
+			{
+				//(handler as IPlatformViewHandler)?.Dispose();
+				_handlerMap.Remove(page);
+			}
+		}
+	}
+
+	void NavigationFinished(List<IView> stack)
+	{
+		NavigationView?.NavigationFinished(stack);
+
+		// Update toolbar back button visibility based on stack depth
+		UpdateToolbarBackButton();
+	}
+
+	void UpdateToolbarBackButton()
+	{
+		if (_toolbar is Microsoft.Maui.Platform.MauiToolbar mt)
+		{
+			var visible = NavigationStack != null && NavigationStack.Count > 1;
+			mt.IsBackButtonVisible = visible;
+		}
+	}
+
+	Gtk.Widget GetNavigationItem(IView page)
+	{
+		if (_pageMap.ContainsKey(page))
+		{
+			return _pageMap[page];
+		}
+		else
+		{
+			var platformView = page.ToPlatform(MauiContext!);
+			_pageMap[page] = platformView;
+			_handlerMap[page] = page.Handler;
+			return platformView;
+		}
+	}
+}

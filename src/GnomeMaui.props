@@ -1,0 +1,10 @@
+<Project>
+    <PropertyGroup>
+        <Version>$(GnomeMauiVersion)</Version>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'gnome'">
+        <DefineConstants>$(DefineConstants);GNOME</DefineConstants>
+    </PropertyGroup>
+</Project>

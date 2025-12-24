@@ -1,0 +1,55 @@
+# Visual Studio Code
+.vscode/.extensions
+.vscode/.user.data
+.vscode/extensions.json
+.vscode/settings.json
+.vscode/.linux/.dotnet
+.vscode/.linux/.bash_history
+.vscode/.linux/.bashrc
+.vscode/.linux/.font_state
+.vscode/.linux/dotnet-install.sh
+.vscode/.linux/install.sh
+.vscode/.linux/oh-my-posh
+.vscode/.linux/oh-my-posh.json
+.vscode/.linux/fonts/
+.vscode/.linux/scripts/
+.vscode/.linux/templates/
+.vscode/.linux/themes/
+
+
+# Linux packages
+**/os/arch
+**/os/deb
+**/os/rpm
+**/os/flatpak
+**/os/targz
+
+*.csproj.user
+
+# Build results
+src/**/[Dd]ebug/
+src/**/[Rr]elease/
+src/**/[Bb]in/
+src/**/[Oo]bj/
+
+samples/**/[Dd]ebug/
+samples/**/[Rr]elease/
+samples/**/[Bb]in/
+samples/**/[Oo]bj/
+
+**/publish
+**/node_modules/
+packages/
+**/BenchmarkDotNet.Artifacts/
+
+# Release archives
+devenv.tar.bz2
+
+# Initial
+.editorconfig
+.npmrc
+.nvmrc
+package.json
+stylelint.config.ts
+
+

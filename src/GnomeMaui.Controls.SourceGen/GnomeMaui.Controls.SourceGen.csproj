@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="$(MSBuildThisFileDirectory)/../Nuget.Common.props" />
+
+    <Import Project="Include.SourceGen.props" />
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <NoWarn>$(NoWarn);NU5128;</NoWarn>
+        <IsRoslynComponent>true</IsRoslynComponent>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <DefineConstants>$(DefineConstants);__SOURCEGEN__</DefineConstants>
+
+        <Title>MAUI Controls XAML Source Generator for GNOME</Title>
+        <Description>.NET Multi-platform App UI (.NET MAUI) XAML source generation for GNOME applications. This package contains the Roslyn source generator for compile-time XAML to C# code generation.</Description>
+        <PackageTags>maui;xaml;source-generator;roslyn;code-generation;gnome;linux;desktop</PackageTags>
+
+        <PackageId>GnomeMaui.Controls.SourceGen</PackageId>
+        <AssemblyName>GnomeMaui.Controls.SourceGen</AssemblyName>
+        <RootNamespace>Microsoft.Maui.Controls.SourceGen</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Update="MauiGResources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>MauiGResources.resx</DependentUpon>
+        </Compile>
+        <EmbeddedResource Update="MauiGResources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>MauiGResources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../GnomeMaui.Controls.BindingSourceGen/GnomeMaui.Controls.BindingSourceGen.csproj" />
+    </ItemGroup>
+
+    <Target Name="_CopyToBuildTasksDir" AfterTargets="Build">
+        <ItemGroup>
+            <_CopyItems Include="$(TargetDir)*.dll" Exclude="$(TargetDir)System.*.dll" />
+            <_CopyItems Include="$(TargetDir)*.pdb" Exclude="$(TargetDir)System.*.pdb" />
+        </ItemGroup>
+        <Copy SourceFiles="@(_CopyItems)" DestinationFolder="$(_MauiBuildTasksLocation)" ContinueOnError="true" Retries="3" RetryDelayMilliseconds="1000" />
+    </Target>
+</Project>

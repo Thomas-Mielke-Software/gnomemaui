@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="$(MSBuildThisFileDirectory)/../Nuget.Common.props" />
+    <Import Project="$(MSBuildThisFileDirectory)/../GnomeMaui.props" />
+
+    <Import Project="Include.Core.props" />
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;netstandard2.0;net$(_GnomeMauiDotNetVersion)</TargetFrameworks>
+        <TargetFrameworks Condition="'$(IsGNOME)' == 'True'">$(TargetFrameworks);$(_GnomeMauiTfm)</TargetFrameworks>
+
+        <RootNamespace>Microsoft.Maui</RootNamespace>
+        <AssemblyName>GnomeMaui</AssemblyName>
+
+        <Title>MAUI Graphics with SkiaSharp for GNOME</Title>
+        <Description>Microsoft.Maui.Graphics implementation using SkiaSharp for GNOME applications. Provides GirCoreSkiaGraphicsView widget with IDrawable support for cross-platform graphics API in Linux desktop applications with hardware-accelerated rendering.</Description>
+        <PackageTags>maui;graphics;skiasharp;gtk;cross-platform;drawing;shapes;canvas;gircore;linux;desktop;vector-graphics;idrawable;widget;renderer</PackageTags>
+
+        <PackageId>GnomeMaui.Core</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+        <PackageReference Include="Microsoft.Extensions.Logging" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
+
+        <PackageReference Include="System.Numerics.Vectors" Condition="$(TargetFramework.StartsWith('netstandard'))" />
+        <PackageReference Include="System.Text.Json" Condition="$(TargetFramework.StartsWith('netstandard'))" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'gnome'">
+        <PackageReference Include="GirCore.Adw-1" />
+        <PackageReference Include="GirCore.GLib-2.0" />
+        <PackageReference Include="GirCore.Gtk-4.0" />
+        <PackageReference Include="GirCore.WebKit-6.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../GnomeMaui.Essentials/GnomeMaui.Essentials.csproj" />
+        <ProjectReference Include="../GnomeMaui.Graphics/GnomeMaui.Graphics.csproj" />
+    </ItemGroup>
+</Project>

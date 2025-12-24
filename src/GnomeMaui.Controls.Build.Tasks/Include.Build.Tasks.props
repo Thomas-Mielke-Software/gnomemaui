@@ -1,0 +1,59 @@
+<Project>
+    <!-- Files from Controls/src/Build.Tasks -->
+    <ItemGroup>
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/BindablePropertyReferenceExtensions.cs" Link="BindablePropertyReferenceExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/BuildException.cs" Link="BuildException.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/CreateObjectVisitor.cs" Link="CreateObjectVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/ExpandMarkupsVisitor.cs" Link="ExpandMarkupsVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/FieldReferenceExtensions.cs" Link="FieldReferenceExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/GlobalSuppressions.cs" Link="GlobalSuppressions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/ILContext.cs" Link="ILContext.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/ILProcessorExtensions.cs" Link="ILProcessorExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/ILRootNode.cs" Link="ILRootNode.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/MethodBodyExtensions.cs" Link="MethodBodyExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/MethodDefinitionExtensions.cs" Link="MethodDefinitionExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/MethodReferenceExtensions.cs" Link="MethodReferenceExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/ModuleDefinitionExtensions.cs" Link="ModuleDefinitionExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/NodeILExtensions.cs" Link="NodeILExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/SetFieldVisitor.cs" Link="SetFieldVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/SetNamescopesAndRegisterNamesVisitor.cs" Link="SetNamescopesAndRegisterNamesVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/SetPropertiesVisitor.cs" Link="SetPropertiesVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/SetResourcesVisitor.cs" Link="SetResourcesVisitor.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/TypeDefinitionExtensions.cs" Link="TypeDefinitionExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/TypeReferenceExtensions.cs" Link="TypeReferenceExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/VariableDefinitionExtensions.cs" Link="VariableDefinitionExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/XamlCAssemblyResolver.cs" Link="XamlCAssemblyResolver.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/XamlCTask.cs" Link="XamlCTask.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/XamlCache.cs" Link="XamlCache.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/XamlTask.cs" Link="XamlTask.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/XmlTypeExtensions.cs" Link="XmlTypeExtensions.cs" />
+
+        <!-- CompiledConverters -->
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/CompiledConverters/**/*.cs" LinkBase="CompiledConverters" />
+
+        <!-- CompiledMarkupExtensions -->
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/CompiledMarkupExtensions/**/*.cs" LinkBase="CompiledMarkupExtensions" />
+
+        <!-- CompiledValueProviders -->
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/CompiledValueProviders/**/*.cs" LinkBase="CompiledValueProviders" />
+
+        <!-- Main MauiGResources files -->
+        <Compile Include="../../ext/maui/src/Controls/src/Build.Tasks/ErrorMessages.Designer.cs" Link="ErrorMessages.Designer.cs" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/ErrorMessages.resx" Link="ErrorMessages.resx" />
+
+        <!-- Localized resources (xlf folder) -->
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.cs.resx" Link="xlf/ErrorMessages.cs.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.de.resx" Link="xlf/ErrorMessages.de.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.es.resx" Link="xlf/ErrorMessages.es.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.fr.resx" Link="xlf/ErrorMessages.fr.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.it.resx" Link="xlf/ErrorMessages.it.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.ja.resx" Link="xlf/ErrorMessages.ja.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.ko.resx" Link="xlf/ErrorMessages.ko.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.pl.resx" Link="xlf/ErrorMessages.pl.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.pt-BR.resx" Link="xlf/ErrorMessages.pt-BR.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.ru.resx" Link="xlf/ErrorMessages.ru.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.tr.resx" Link="xlf/ErrorMessages.tr.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.zh-Hans.resx" Link="xlf/ErrorMessages.zh-Hans.resx" />
+        <EmbeddedResource Include="../../ext/maui/src/Controls/src/Build.Tasks/xlf/ErrorMessages.zh-Hant.resx" Link="xlf/ErrorMessages.zh-Hant.resx" />
+    </ItemGroup>
+</Project>

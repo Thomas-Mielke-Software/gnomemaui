@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="$(MSBuildThisFileDirectory)/../Nuget.Common.props" />
+    <Import Project="$(MSBuildThisFileDirectory)/../GnomeMaui.props" />
+
+    <Import Project="Include.Blazor.props" />
+
+    <PropertyGroup>
+        <TargetFrameworks>net$(_GnomeMauiDotNetVersion)</TargetFrameworks>
+        <TargetFrameworks Condition="'$(IsGNOME)' == 'True'">$(TargetFrameworks);$(_GnomeMauiTfm)</TargetFrameworks>
+
+        <DefineConstants>$(DefineConstants);WEBVIEW2_MAUI</DefineConstants>
+
+        <AssemblyName>GnomeMaui.Blazor</AssemblyName>
+        <RootNamespace>Microsoft.AspNetCore.Components.WebView.Maui</RootNamespace>
+
+        <Title>GnomeMaui UI Framework for Linux</Title>
+
+        <Description>GnomeMaui is a framework for creating native Linux desktop apps with C# and XAML. Using GnomeMaui, you can develop apps that run on GNOME-based distributions from a single shared codebase.</Description>
+        <PackageTags>maui;gnome;gtk;adw;adwaita;gircore;linux;graphics;skiasharp;cross-platform;drawing;shapes;canvas;desktop;vector-graphics;idrawable;renderer</PackageTags>
+
+        <PackageId>GnomeMaui.Blazor</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'gnome'">
+        <PackageReference Include="GirCore.Adw-1" />
+        <PackageReference Include="GirCore.GLib-2.0" />
+        <PackageReference Include="GirCore.Gtk-4.0" />
+        <PackageReference Include="GirCore.WebKit-6.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authorization" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebView" />
+        <PackageReference Include="Microsoft.JSInterop" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../GnomeMaui.Controls.Core/GnomeMaui.Controls.Core.csproj" />
+        <ProjectReference Include="../GnomeMaui.Controls.Xaml/GnomeMaui.Controls.Xaml.csproj" />
+        <!-- Build.Tasks provides MSBuild integration: implicit usings, props, targets -->
+        <!-- PrivateAssets=none makes it flow to consumers, ReferenceOutputAssembly=false prevents compile-time dependency -->
+        <ProjectReference Include="../GnomeMaui.Controls.Build.Tasks/GnomeMaui.Controls.Build.Tasks.csproj">
+            <PrivateAssets>none</PrivateAssets>
+            <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+            <IncludeAssets>all</IncludeAssets>
+        </ProjectReference>
+    </ItemGroup>
+</Project>

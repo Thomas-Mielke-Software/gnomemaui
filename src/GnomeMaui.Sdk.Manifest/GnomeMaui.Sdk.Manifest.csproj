@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.Build.NoTargets">
+    <Import Project="$(MSBuildThisFileDirectory)/../Nuget.Common.props" />
+    <!-- <Import Project="$(MSBuildThisFileDirectory)/../GnomeMaui.props" /> -->
+    <Import Project="$(MSBuildThisFileDirectory)/../Workload.props" />
+
+    <Import Project="$(MSBuildThisFileDirectory)/../../ext/maui/eng/ReplaceText.targets" />
+
+    <PropertyGroup>
+        <PackageId>GnomeMaui.Sdk.Manifest</PackageId>
+        <PackageVersion>$(GnomeMauiSdkVersion)</PackageVersion>
+
+        <Title>GNOME MAUI .NET workload manifest</Title>
+        <Description>GNOME MAUI workload manifest for .NET MAUI on GNOME.</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../GnomeMaui.Sdk/GnomeMaui.Sdk.csproj" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <IncludeSymbols>false</IncludeSymbols>
+    </PropertyGroup>
+
+    <!-- Input JSON files for workload manifest generation -->
+    <ItemGroup>
+        <_JsonInputFile Include="WorkloadManifest.in.json" OutputPath="$(IntermediateOutputPath)WorkloadManifest.json" Pack="True" />
+        <_JsonInputFile Include="WorkloadDependencies.in.json" OutputPath="$(IntermediateOutputPath)WorkloadDependencies.json" Pack="True" />
+        <_JsonInputFile Include="WorkloadManifest.in.targets" OutputPath="$(IntermediateOutputPath)WorkloadManifest.targets" Pack="True" />
+    </ItemGroup>
+
+    <!-- Generate workload manifest files by replacing tokens in input JSON files -->
+    <Target Name="_GenerateWorkloadManifest" BeforeTargets="Build;AssignTargetPaths" Inputs="$(MSBuildProjectFile);@(_JsonInputFile)" Outputs="@(_JsonInputFile->'%(OutputPath)')">
+        <ItemGroup>
+            <_VersionsToReplace Include="@GNOMEMAUI_VERSION@" PropertyName="GnomeMauiVersion" />
+            <_VersionsToReplace Include="@GNOMEMAUI_SDK_VERSION@" PropertyName="GnomeMauiSdkVersion" />
+            <_VersionsToReplace Include="@GNOMEMAUI_TFM@" PropertyName="_GnomeMauiTfm" />
+            <_VersionsToReplace Include="@GIRCORE_VERSION@" PropertyName="GirCoreVersion" />
+            <_VersionsToReplace Include="@GNOME_VERSION@" PropertyName="GNOMEVersion" />
+            <_VersionsToReplace Include="@DOTNET_VERSION@" PropertyName="DOTNETVersion" />
+        </ItemGroup>
+
+        <CreateItem Include="@(_JsonInputFile)" AdditionalMetadata="OldValue=%(_VersionsToReplace.Identity);NewValue=$(%(_VersionsToReplace.PropertyName))">
+            <Output TaskParameter="Include" ItemName="_JsonVariableMatrix" />
+        </CreateItem>
+
+        <Copy SourceFiles="%(_JsonInputFile.Identity)" DestinationFiles="%(_JsonInputFile.OutputPath)" />
+
+        <ReplaceText Input="%(_JsonVariableMatrix.OutputPath)" Output="%(_JsonVariableMatrix.OutputPath)" OldValue="%(_JsonVariableMatrix.OldValue)" NewValue="%(_JsonVariableMatrix.NewValue)" />
+
+        <ItemGroup>
+            <FileWrites Include="@(_JsonInputFile->'%(OutputPath)')" />
+            <None Include="%(_JsonInputFile.OutputPath)" Link="$([System.IO.Path]::GetFileName('%(_JsonInputFile.OutputPath)'))" CopyToOutputDirectory="PreserveNewest" Pack="%(_JsonInputFile.Pack)" PackagePath="data" Visible="false" />
+        </ItemGroup>
+    </Target>
+
+    <Target Name="CopyManifestFilesToTools" AfterTargets="Build">
+        <!-- Build output path = IntermediateOutputPath -->
+        <PropertyGroup>
+            <ManifestSourceDir>$(IntermediateOutputPath)</ManifestSourceDir>
+            <ManifestTargetDir>$(GNOMEMAUI)/src/GnomeMaui.Tools/Data/</ManifestTargetDir>
+        </PropertyGroup>
+
+        <!-- Create target directory if it doesn't exist -->
+        <MakeDir Directories="$(ManifestTargetDir)" />
+
+        <!-- Copy files -->
+        <Copy SourceFiles="$(ManifestSourceDir)WorkloadManifest.json" DestinationFiles="$(ManifestTargetDir)WorkloadManifest.json" OverwriteReadOnlyFiles="True" SkipUnchangedFiles="false" />
+        <Copy SourceFiles="$(ManifestSourceDir)WorkloadDependencies.json" DestinationFiles="$(ManifestTargetDir)WorkloadDependencies.json" OverwriteReadOnlyFiles="True" SkipUnchangedFiles="false" />
+        <Copy SourceFiles="$(ManifestSourceDir)WorkloadManifest.targets" DestinationFiles="$(ManifestTargetDir)WorkloadManifest.targets" OverwriteReadOnlyFiles="True" SkipUnchangedFiles="false" />
+    </Target>
+</Project>

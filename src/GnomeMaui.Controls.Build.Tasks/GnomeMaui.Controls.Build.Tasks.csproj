@@ -1,0 +1,130 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="$(MSBuildThisFileDirectory)/../Nuget.Common.props" />
+    <Import Project="$(MSBuildThisFileDirectory)/../GnomeMaui.props" />
+    <Import Project="$(MSBuildThisFileDirectory)/Include.Build.Tasks.props" />
+
+    <PropertyGroup>
+        <PackageId>GnomeMaui.Controls.Build.Tasks</PackageId>
+        <AssemblyName>GnomeMaui.Controls.Build.Tasks</AssemblyName>
+        <RootNamespace>Microsoft.Maui.Controls.Build.Tasks</RootNamespace>
+        <TargetFramework>netstandard2.0</TargetFramework>
+
+        <!-- NuGet package information -->
+        <IsPackable>true</IsPackable>
+        <Title>GnomeMaui Build Tasks and Tooling</Title>
+        <Description>Build tasks and MSBuild integration for GnomeMaui. This package contains the MSBuild tasks, props, and targets for building GnomeMaui applications on GNOME. Provides implicit using directives and XAML compilation support.</Description>
+        <PackageTags>gnome;gtk;maui;msbuild;build-tasks;xaml;linux;desktop</PackageTags>
+
+        <!-- Suppresses the warnings about the package not having assemblies in lib/*/.dll.-->
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <!-- Do not include any assemblies from this project as we will do it manually -->
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <!-- Make sure to copy all the NuGet files into the build output -->
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <!-- ILRepack this assembly and add a strong name and version -->
+        <!-- <ILRepackBeforePack>true</ILRepackBeforePack> -->
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Mono.Cecil" PrivateAssets="all" GeneratePathProperty="true" />
+        <PackageReference Include="System.CodeDom" PrivateAssets="all" GeneratePathProperty="true" />
+        <PackageReference Include="Microsoft.Build.Framework" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.Build.Utilities.Core" PrivateAssets="all" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../GnomeMaui.Controls.Core/GnomeMaui.Controls.Core.csproj" />
+        <ProjectReference Include="../GnomeMaui.Controls.Xaml/GnomeMaui.Controls.Xaml.csproj" />
+        <ProjectReference Include="../GnomeMaui.Controls.SourceGen/GnomeMaui.Controls.SourceGen.csproj" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="../GnomeMaui.Controls.BindingSourceGen/GnomeMaui.Controls.BindingSourceGen.csproj" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="$(PkgMono_Cecil)\lib\netstandard2.0\Mono.Cecil.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+        <None Include="$(PkgMono_Cecil)\lib\netstandard2.0\Mono.Cecil.pdb" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+        <None Include="$(PkgMono_Cecil)\lib\netstandard2.0\Mono.Cecil.Mdb.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+        <None Include="$(PkgMono_Cecil)\lib\netstandard2.0\Mono.Cecil.Mdb.pdb" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+        <None Include="$(PkgMono_Cecil)\lib\netstandard2.0\Mono.Cecil.Pdb.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+        <None Include="$(PkgMono_Cecil)\lib\netstandard2.0\Mono.Cecil.Pdb.pdb" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+        <None Include="$(PkgMono_Cecil)\lib\netstandard2.0\Mono.Cecil.Rocks.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+        <None Include="$(PkgMono_Cecil)\lib\netstandard2.0\Mono.Cecil.Rocks.pdb" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+        <None Include="$(PkgSystem_CodeDom)\lib\netstandard2.0\System.CodeDom.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+
+        <!-- Include the build tasks assembly itself -->
+        <None Include="$(TargetPath)" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+
+        <None Include="../GnomeMaui.Controls.SourceGen/bin/$(Configuration)/netstandard2.0/GnomeMaui.Controls.SourceGen.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+        <None Include="../GnomeMaui.Controls.SourceGen/bin/$(Configuration)/netstandard2.0/GnomeMaui.Controls.SourceGen.pdb" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+        <None Include="../GnomeMaui.Controls.BindingSourceGen/bin/$(Configuration)/netstandard2.0/GnomeMaui.Controls.BindingSourceGen.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+        <None Include="../GnomeMaui.Controls.BindingSourceGen/bin/$(Configuration)/netstandard2.0/GnomeMaui.Controls.BindingSourceGen.pdb" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0" />
+
+        <!-- Include satellite assemblies (localized resources) -->
+        <None Include="$(TargetDir)cs\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\cs" Condition="Exists('$(TargetDir)cs\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)de\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\de" Condition="Exists('$(TargetDir)de\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)es\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\es" Condition="Exists('$(TargetDir)es\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)fr\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\fr" Condition="Exists('$(TargetDir)fr\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)it\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\it" Condition="Exists('$(TargetDir)it\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)ja\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\ja" Condition="Exists('$(TargetDir)ja\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)ko\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\ko" Condition="Exists('$(TargetDir)ko\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)pl\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\pl" Condition="Exists('$(TargetDir)pl\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)pt-BR\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\pt-BR" Condition="Exists('$(TargetDir)pt-BR\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)ru\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\ru" Condition="Exists('$(TargetDir)ru\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)tr\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\tr" Condition="Exists('$(TargetDir)tr\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)zh-Hans\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\zh-Hans" Condition="Exists('$(TargetDir)zh-Hans\$(AssemblyName).resources.dll')" />
+        <None Include="$(TargetDir)zh-Hant\$(AssemblyName).resources.dll" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\zh-Hant" Condition="Exists('$(TargetDir)zh-Hant\$(AssemblyName).resources.dll')" />
+
+        <None Remove="$(OutputPath)*.xml" />
+        <None Include="nuget\**" PackagePath="" Pack="true" Exclude="nuget\**\*.aotprofile.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="ErrorMessages.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>ErrorMessages.resx</DependentUpon>
+        </Compile>
+        <EmbeddedResource Update="ErrorMessages.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <!-- Define build tasks output location in obj folder to avoid cluttering project root -->
+        <_MauiBuildTasksLocation Condition="'$(_MauiBuildTasksLocation)' == ''">$(MSBuildProjectDirectory)\obj\.buildtasks\</_MauiBuildTasksLocation>
+    </PropertyGroup>
+
+    <Target Name="_CopyToBuildTasksDir" AfterTargets="Build">
+        <ItemGroup>
+            <_CopyItems Include="nuget\buildTransitive\**" Exclude="nuget\buildTransitive\*;nuget\buildTransitive\netstandard2.0\**" />
+            <_CopyItems Include="nuget\buildTransitive\netstandard2.0\**" />
+            <_CopyItems Include="$(TargetDir)*.dll" Exclude="$(TargetDir)System.*.dll;$(TargetDir)Microsoft.Build.*" />
+            <_CopyItems Include="$(TargetDir)*.pdb" Exclude="$(TargetDir)System.*.pdb;$(TargetDir)Microsoft.Build.*" />
+            <!-- Include satellite assemblies (localized resources) - already handled by explicit Pack items above -->
+            <!-- <_CopyItems Include="$(TargetDir)**\*.resources.dll" /> -->
+        </ItemGroup>
+        <Copy SourceFiles="@(_CopyItems)" DestinationFolder="$(_MauiBuildTasksLocation)%(RecursiveDir)" ContinueOnError="true" Retries="3" RetryDelayMilliseconds="1000" />
+    </Target>
+
+    <!-- <ItemGroup>
+        <ILRepackInputAssemblies Include="$(TargetDir)GnomeMaui.Graphics.dll" />
+        <ILRepackInputAssemblies Include="$(TargetDir)GnomeMaui.Essentials.dll" />
+        <ILRepackInputAssemblies Include="$(TargetDir)GnomeMaui.dll" />
+        <ILRepackInputAssemblies Include="$(TargetDir)GnomeMaui.Controls.dll" />
+        <ILRepackInputAssemblies Include="$(TargetDir)GnomeMaui.Controls.Xaml.dll" />
+    </ItemGroup> -->
+    <!-- <Import Project="../../ext/maui/eng/ILRepack.targets" />
+    <Target Name="AfterILRepack">
+        <ItemGroup>
+            <None Include="@(ILRepackOutput)" Visible="false" Pack="true" PackagePath="buildTransitive\netstandard2.0\%(RecursiveDir)%(Filename)%(Extension)" />
+        </ItemGroup>
+    </Target> -->
+
+    <!-- Workaround for https://github.com/dotnet/sdk/issues/1458 -->
+    <Target Name="AddReferenceRelatedPathsToCopyLocal" AfterTargets="ResolveAssemblyReferences">
+        <ItemGroup>
+            <ReferenceCopyLocalPaths Include="@(_ReferenceRelatedPaths)" />
+            <ReferenceCopyLocalPaths Include="@(_DebugSymbolsFiles)" />
+        </ItemGroup>
+    </Target>
+</Project>

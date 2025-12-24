@@ -1,0 +1,63 @@
+<Project>
+    <ItemGroup>
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Converters/ColorTypeConverter.cs" Link="Converters/ColorTypeConverter.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Converters/PointFTypeConverter.cs" Link="Converters/PointFTypeConverter.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Converters/PointTypeConverter.cs" Link="Converters/PointTypeConverter.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Converters/RectFTypeConverter.cs" Link="Converters/RectFTypeConverter.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Converters/RectTypeConverter.cs" Link="Converters/RectTypeConverter.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Converters/SizeFTypeConverter.cs" Link="Converters/SizeFTypeConverter.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Converters/SizeTypeConverter.cs" Link="Converters/SizeTypeConverter.cs" />
+
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Text/IAttributedText.cs" Link="Text/IAttributedText.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Text/IAttributedTextRun.cs" Link="Text/IAttributedTextRun.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Text/ITextAttributes.cs" Link="Text/ITextAttributes.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Text/TextAttribute.cs" Link="Text/TextAttribute.cs" />
+
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/NumericExtensions.cs" Link="NumericExtensions.cs" />
+
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/MathF.cs" Link="MathF.cs" />
+
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Color.cs" Link="Color.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Colors.cs" Link="Colors.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/ColorUtils.cs" Link="ColorUtils.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/GeometryUtil.cs" Link="GeometryUtil.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Paint.cs" Link="Paint.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/SolidPaint.cs" Link="SolidPaint.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Point.cs" Link="Point.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/PointF.cs" Link="PointF.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Rect.cs" Link="Rect.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/RectF.cs" Link="RectF.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/Size.cs" Link="Size.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/SizeF.cs" Link="SizeF.cs" />
+
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/ICanvas.cs" Link="ICanvas.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/IDrawable.cs" Link="IDrawable.cs" />
+
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/LineCap.cs" Link="LineCap.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/LineJoin.cs" Link="LineJoin.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/IFont.cs" Link="IFont.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/FontStyleType.cs" Link="FontStyleType.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/BlendMode.cs" Link="BlendMode.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/PathF.cs" Link="PathF.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/PathOperation.cs" Link="PathOperation.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/ArcFlattener.cs" Link="ArcFlattener.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/WindingMode.cs" Link="WindingMode.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/HorizontalAlignment.cs" Link="HorizontalAlignment.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/VerticalAlignment.cs" Link="VerticalAlignment.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/TextFlow.cs" Link="TextFlow.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/IImage.cs" Link="IImage.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/ImageFormat.cs" Link="ImageFormat.cs" />
+
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/GradientPaint.cs" Link="GradientPaint.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/PaintGradientStop.cs" Link="PaintGradientStop.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/LinearGradientPaint.cs" Link="LinearGradientPaint.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/RadialGradientPaint.cs" Link="RadialGradientPaint.cs" />
+
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/CanvasExtensions.cs" Link="CanvasExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/CanvasDefaults.cs" Link="CanvasDefaults.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/IPattern.cs" Link="IPattern.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/PatternExtensions.cs" Link="PatternExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/PatternPaint.cs" Link="PatternPaint.cs" />
+        <Compile Include="../../ext/maui/src/Graphics/src/Graphics/PaintPattern.cs" Link="PaintPattern.cs" />
+    </ItemGroup>
+</Project>

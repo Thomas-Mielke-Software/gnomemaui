@@ -1,0 +1,22 @@
+<Project>
+    <ItemGroup>
+        <!-- Link all BindingSourceGen files -->
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/AccessExpressionBuilder.cs" Link="AccessExpressionBuilder.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/BindingCodeWriter.cs" Link="BindingCodeWriter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/BindingInvocationDescription.cs" Link="BindingInvocationDescription.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/BindingSourceGenerator.cs" Link="BindingSourceGenerator.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/BindingTransformer.cs" Link="BindingTransformer.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/DiagnosticsFactory.cs" Link="DiagnosticsFactory.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/EquatableArray.cs" Link="EquatableArray.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/HashCode.cs" Link="HashCode.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/IsExternalInitCompat.cs" Link="IsExternalInitCompat.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/ISymbolExtensions.cs" Link="ISymbolExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/ITypeSymbolExtensions.cs" Link="ITypeSymbolExtensions.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/InvocationParser.cs" Link="InvocationParser.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/PathParser.cs" Link="PathParser.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/PathPart.cs" Link="PathPart.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/Result.cs" Link="Result.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/Setter.cs" Link="Setter.cs" />
+        <Compile Include="../../ext/maui/src/Controls/src/BindingSourceGen/UnsafeAccessorsMethodName.cs" Link="UnsafeAccessorsMethodName.cs" />
+    </ItemGroup>
+</Project>

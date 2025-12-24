@@ -1,0 +1,5 @@
+<Project>
+    <ItemGroup Condition=" '$(TargetPlatformIdentifier)' == 'gnome' ">
+        <SupportedPlatform Include="gnome" />
+    </ItemGroup>
+</Project>
