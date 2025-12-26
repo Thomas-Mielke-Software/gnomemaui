@@ -21,17 +21,11 @@ Below are two short animated demos showcasing the current state of the project:
 
 - **[MAUI sample app](/samples/MauiTest1)** (Shell navigation, Skia CPU & GPU pages)
 
-<video controls width="410" height="309">
-  <source src="https://github.com/GnomeMaui/gnomemaui/raw/refs/heads/main/assets/MauiTest1.mp4" type="video/mp4">
-  Browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/ce239643-d9cb-4fcd-8832-1e64a05ef2db
 
 - **[MAUI Blazor sample app](/samples/MauiBlazorApp1)** (XAML host with Blazor integration)
 
-<video controls width="410" height="309">
-  <source src="https://github.com/GnomeMaui/gnomemaui/raw/refs/heads/main/assets/MauiBlazorApp1.mp4" type="video/mp4">
-  Browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/5790be5e-f9af-4da7-bc6d-2de14340341b
 
 ## What's ready
 
@@ -72,6 +66,8 @@ Together, these components define a graphics stack where MAUI on Linux is not a 
 ## Developer environment
 
 Detailed instructions for setting up a GNOME MAUI .NET development environment on Linux: [gnomemaui-linux-dev-setup.md](docs/gnomemaui-linux-dev-setup.md)
+
+
 
 ## License
 
