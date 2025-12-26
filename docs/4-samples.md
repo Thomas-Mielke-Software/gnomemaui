@@ -3,6 +3,8 @@
 > [!NOTE]
 > This documentation depends on the [Development Environment Setup for GNOME MAUI .NET on Linux](/docs/1-devenv.md), the [Microsoft MAUI and SkiaSharp Patch](/docs/2-patch.md), and the [Chicken-egg scenario. Dependency paradox neutralization…](/docs/3-chicken-egg.md) documentation.
 
+Open Ptyxis and select the GNOME MAUI profile from the profile list.
+
 ![Open GNOME MAUI terminal](/assets/GnomeMauiIcon.png)
 
 ## Build and run MAUI sample app

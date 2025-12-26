@@ -13,5 +13,3 @@ dotnet gnomemaui --uninstall --verbose || true
 dotnet tool uninstall GnomeMaui.Tools --tool-path "$DOTNET_ROOT" || true
 
 stop_dotnet_processes
-
-h

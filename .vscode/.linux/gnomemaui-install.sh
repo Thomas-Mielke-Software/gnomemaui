@@ -16,5 +16,3 @@ print_step "Install GNOME MAUI .NET workload"
 dotnet workload install maui-gnome
 
 stop_dotnet_processes
-
-h

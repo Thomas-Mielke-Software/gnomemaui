@@ -6,6 +6,8 @@
 This document exists because, in the case of GNOME MAUI .NET, a classic chicken-and-egg situation arises:
 the `net10.0-gnome` TFM only exists if the maui-gnome workload is already installed, but building and testing the workload itself requires the `net10.0-gnome` TFM. This circular dependency cannot be avoided; it can only be resolved through deliberate bootstrap steps. The following steps neutralize this paradox and ensure that the GNOME MAUI development environment can be set up in a reproducible way.
 
+Open Ptyxis and select the GNOME MAUI profile from the profile list.
+
 ![Open GNOME MAUI terminal](/assets/GnomeMauiIcon.png)
 
 Return to the GNOME MAUI home directory:

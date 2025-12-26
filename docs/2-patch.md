@@ -3,9 +3,24 @@
 > [!NOTE]
 > This documentation depends on the [Development Environment Setup for GNOME MAUI .NET on Linux](/docs/1-devenv.md) documentation.
 
-Open the **GNOME MAUI** terminal from the GNOME menu:
+## Start GNOME MAUI shell
+
+You can start the environment in two ways:
+
+**Option 1 - From the desktop launcher**:
+The setup script installs a launcher named **GNOME MAUI** with its own icon (`gnomemaui.desktop`). You can start it directly from your GNOME application menu.
 
 ![Open GNOME MAUI terminal](/assets/GnomeMauiIcon.png)
+
+**Option 2 - From Ptyxis**:
+Open **Ptyxis** and select the **GNOME MAUI** profile.
+This profile is also created automatically by the setup scripts.
+
+Now type `h`. this is an internal function that navigates back to the `$GNOMEMAUI` directory:
+
+```bash
+h
+```
 
 Move one directory up:
 
@@ -15,7 +30,7 @@ cd ..
 
 ## MAUI
 
-The current patch requires this exact version; do not change it:
+The current patch requires this exact version, do not change it:
 
 ```bash
 wget https://github.com/dotnet/maui/archive/refs/tags/10.0.11.tar.gz
@@ -35,9 +50,7 @@ wget https://github.com/mono/SkiaSharp/archive/refs/tags/v3.119.1.tar.gz
 tar -xvf v3.119.1.tar.gz
 ```
 
-## Back to the $GNOMEMAUI home directory
-
-Now type `h`; this is an internal function that navigates back to the `$GNOMEMAUI` directory:
+## Back to the GNOME MAUI home
 
 ```bash
 h

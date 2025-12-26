@@ -9,7 +9,7 @@ delete_nuget_packages
 delete_objbin_folders
 
 print_step "Build GNOME MAUI .NET"
+oldpwd="$PWD"
 cd $GNOMEMAUI/src
 dotnet build -v:diag
-
-h
+cd "$oldpwd"

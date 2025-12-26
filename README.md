@@ -4,7 +4,7 @@
 
 ## Overview
 
-GNOME MAUI .NET is a GirCore-based, modern GTK4/Adwaita .NET MAUI backend for Linux. Its goal is to bring first-class, native GNOME integration to .NET MAUI while preserving the familiar MAUI development model and tooling.
+GNOME MAUI .NET is a [GirCore](https://gircore.github.io/)-based, modern GTK4/Adwaita .NET MAUI backend for Linux. Its goal is to bring first-class, native GNOME integration to .NET MAUI while preserving the familiar MAUI development model and tooling.
 
 The project provides a dedicated `maui-gnome` workload that introduces the `net10.0-gnome` TFM, allowing MAUI applications to be built and run on Linux using the single-project model, without splitting the app into platform-specific projects.
 
@@ -21,11 +21,17 @@ Below are two short animated demos showcasing the current state of the project:
 
 - **[MAUI sample app](/samples/MauiTest1)** (Shell navigation, Skia CPU & GPU pages)
 
-<video src="/assets/MauiTest1.mp4" controls width="410" height="309"></video>
+<video controls width="410" height="309">
+  <source src="https://github.com/GnomeMaui/gnomemaui/raw/refs/heads/main/assets/MauiTest1.mp4" type="video/mp4">
+  Browser does not support the video tag.
+</video>
 
 - **[MAUI Blazor sample app](/samples/MauiBlazorApp1)** (XAML host with Blazor integration)
 
-<video src="/assets/MauiBlazorApp1.mp4" controls width="410" height="309"></video>
+<video controls width="410" height="309">
+  <source src="https://github.com/GnomeMaui/gnomemaui/raw/refs/heads/main/assets/MauiBlazorApp1.mp4" type="video/mp4">
+  Browser does not support the video tag.
+</video>
 
 ## What's ready
 
@@ -63,13 +69,9 @@ The same rendering philosophy underpins the following integrations, which are ac
 
 Together, these components define a graphics stack where MAUI on Linux is not a compromise, but a platform that is powerful and shamelessly fast.
 
-## Documentation
+## Developer environment
 
-- [`/docs/1-devenv.md`](/docs/1-devenv.md) – developer environment setup
-- [`/docs/2-patch.md`](/docs/2-patch.md) – applying the MAUI and SkiaSharp patches
-- [`/docs/3-chicken-egg.md`](/docs/3-chicken-egg.md) – installing the `maui-gnome` workload and enabling `net10.0-gnome`
-- [`/docs/4-samples.md`](/docs/4-samples.md) – building and running the sample applications
-- Development environment tooling is based on the `devenv` project. For VS Code setup and editor configuration, see: [https://github.com/czirok/devenv#vs-code](https://github.com/czirok/devenv#vs-code)
+Detailed instructions for setting up a GNOME MAUI .NET development environment on Linux: [gnomemaui-linux-dev-setup.md](docs/gnomemaui-linux-dev-setup.md)
 
 ## License
 
