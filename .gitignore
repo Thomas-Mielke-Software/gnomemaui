@@ -61,5 +61,12 @@ package.json
 stylelint.config.ts
 AGENTS.md
 
-
-
+ext/drawnui
+ext/maui
+ext/skiasharp
+ext/mapsui
+ext/livecharts
+ext/gircore
+ext/adw-main
+ext/gtk-main
+ext/maui-gtk3

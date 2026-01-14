@@ -55,7 +55,7 @@ cd $GNOMEMAUIROOT
 Clone the GNOME MAUI repository:
 
 ```bash
-git clone https://github.com/gnomemaui/gnomemaui.git
+git clone --depth 1 https://github.com/gnomemaui/gnomemaui.git
 ```
 
 ```bash

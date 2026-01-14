@@ -7,10 +7,12 @@ This documentation depends on
 
 ## Start GNOME MAUI ptyxis terminal
 
+If the GNOME MAUI ptyxis terminal is open, press `h` and `enter` to return to the devenv home.
+
 You can start the ptyxis terminal in two ways:
 
 **Option 1 - From the desktop launcher**:
-The setup script installs a launcher named **GNOME MAUI** with its own icon (`gnomemaui.desktop`). You can start it directly from your GNOME application menu.
+The setup script installs a launcher named **GNOME MAUI** with its own icon (`gnomemaui.desktop`). You can start it directly from your GNOME Activities overview.
 
 **Option 2 - From Ptyxis**:
 Open **Ptyxis** and select the **GNOME MAUI** profile.

@@ -6,7 +6,7 @@ This documentation depends on
 - [Patch](/docs/2-patch.md)
 - [Chicken-egg scenario. Dependency paradox neutralization…](/docs/3-chicken-egg.md)
 
-Open GNOME MAUI ptyxis terminal.
+Open GNOME MAUI ptyxis terminal, or if opened, press `h` and `enter` to return to the devenv home.
 
 ## Build and run MAUI sample app
 
@@ -22,6 +22,12 @@ dotnet build -f net10.0-gnome -v:diag
 GSK_RENDERER=opengl dotnet ./bin/Debug/net10.0-gnome/MauiTest1.dll
 ```
 
+Optional: run with GTK interactive debugger
+
+```bash
+GTK_DEBUG=interactive GSK_RENDERER=opengl dotnet ./bin/Debug/net10.0-gnome/MauiTest1.dll
+```
+
 ## Build and run MAUI Blazor sample app
 
 ```bash
@@ -34,4 +40,18 @@ dotnet build -f net10.0-gnome -v:diag
 
 ```bash
 dotnet ./bin/Debug/net10.0-gnome/MauiBlazorApp1.dll
+```
+
+Optional: run with GTK interactive debugger
+
+```bash
+GTK_DEBUG=interactive dotnet ./bin/Debug/net10.0-gnome/MauiBlazorApp1.dll
+```
+
+## Start Visual Studio Code from GNOME MAUI ptyxis terminal
+
+Just `code` without the dot.
+
+```bash
+code
 ```
