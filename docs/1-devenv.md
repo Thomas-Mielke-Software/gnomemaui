@@ -108,7 +108,7 @@ On Ubuntu 24.04 LTS, Ptyxis is not available, so this output will appear instead
 ```
 
 In `.vscode/.linux/install.env` change PROJECT_TERMINAL="gnome-terminal" and set the GNOME_TERMINAL_ID var to the GUID of your GNOME Terminal profile 
-as described in 1.1-gnome-terminal-setup.md. You might want to protect your install.env from possible upstream changes using `git update-index --assume-unchanged .vscode/.linux/install.env`.
+as described in [GNOME Terminal Setup](/docs/1.1-gnome-terminal-setup.md). You might want to protect your install.env from possible upstream changes using `git update-index --assume-unchanged .vscode/.linux/install.env`.
 
 > [!CAUTION]
 > Flatpak Visual Studio Code is not supported. Please install the native version: [Ubuntu VS Code](https://github.com/czirok/devenv?tab=readme-ov-file#ubuntu-plucky-puffin-2510-and-debian-trixie-13)
@@ -152,6 +152,6 @@ You should see this or something similar:
 
 ## Next step
 
-If you are using GNOME Terminal, follow the instructions found here: [GNOME Terminal manual setup](/docs/1.1-gnome-terminal-setup.md)
+If you are using GNOME Terminal, follow the instructions found here: [GNOME Terminal Setup](/docs/1.1-gnome-terminal-setup.md)
 
 You can now continue with the [patch](/docs/2-patch.md) documentation.
